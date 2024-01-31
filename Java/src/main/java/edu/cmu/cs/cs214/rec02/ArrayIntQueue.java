@@ -35,6 +35,8 @@ public class ArrayIntQueue implements IntQueue {
      */
     private static final int INITIAL_SIZE = 10;
 
+    private static final Integer NULL = null;
+
     /**
      * Constructs an empty queue with an initial capacity of ten.
      */
@@ -73,11 +75,12 @@ public class ArrayIntQueue implements IntQueue {
 
     /** {@inheritDoc} */
     public boolean isEmpty() {
-        return size >= 0;
+        return size == 0;
     }
 
     /** {@inheritDoc} */
     public Integer peek() {
+        if(size == 0) return NULL;
         return elementData[head];
     }
 
