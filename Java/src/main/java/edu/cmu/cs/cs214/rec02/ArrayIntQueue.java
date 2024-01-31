@@ -67,6 +67,7 @@ public class ArrayIntQueue implements IntQueue {
     /** {@inheritDoc} */
     public boolean enqueue(Integer value) {
         ensureCapacity();
+        head = 0;
         int tail = (head + size) % elementData.length;
         elementData[tail] = value;
         size++;
@@ -94,7 +95,7 @@ public class ArrayIntQueue implements IntQueue {
      * necessary, to ensure that it can hold at least size + 1 elements.
      */
     private void ensureCapacity() {
-        if (size == elementData.length) {
+        if (size + 1 == elementData.length) {
             int oldCapacity = elementData.length;
             int newCapacity = 2 * oldCapacity + 1;
             int[] newData = new int[newCapacity];
@@ -105,7 +106,7 @@ public class ArrayIntQueue implements IntQueue {
                 newData[head - i] = elementData[i];
             }
             elementData = newData;
-            head = 0;
+            // head = 0;
         }
     }
 }

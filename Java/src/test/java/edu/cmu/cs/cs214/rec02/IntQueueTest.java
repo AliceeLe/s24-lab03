@@ -102,6 +102,27 @@ public class IntQueueTest {
         mQueue.dequeue();
         assertTrue(mQueue.peek() == NULL);
         assertTrue(mQueue.isEmpty());
+        mQueue.enqueue(1);
+        mQueue.enqueue(2);
+        mQueue.enqueue(3);
+        mQueue.enqueue(4);
+        mQueue.enqueue(5);
+        mQueue.enqueue(6);
+        mQueue.enqueue(7);
+        mQueue.enqueue(8);
+        mQueue.enqueue(9);
+        mQueue.enqueue(10);
+        assertTrue(mQueue.size() == 10);
+        assertTrue(mQueue.peek() == 1);
+        mQueue.enqueue(11);
+        assertTrue(mQueue.size() == 11);
+        assertTrue(mQueue.peek() == 1);
+        mQueue.dequeue();
+        assertTrue(mQueue.size() == 10);
+        assertTrue(mQueue.peek() == 2);
+        mQueue.dequeue();
+        assertTrue(mQueue.size() == 9);
+        assertTrue(mQueue.peek() == 3);
 
     }
 
